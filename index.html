@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FLIPS Rabdan - Weekly Waste Segregation Inspection</title>
+<style>
+  body {font-family: Arial, sans-serif; padding: 15px; background: #f4f4f4;}
+  .title-box {background:#003366; color:white; padding:18px; border-radius:12px; text-align:center; margin-bottom:20px;}
+  .title-main {font-size:22px; font-weight:bold;}
+  .title-sub-big {font-size:24px; font-weight:bold; margin-top:10px;}
+  .title-small {font-size:15px; margin-top:6px; opacity:0.95;}
+  h2 {margin-top:25px; background:#0066cc; color:white; padding:10px; border-radius:6px; font-size:17px;}
+  .item {background:white; margin:8px 0; padding:12px; border-radius:6px; font-size:16px; border-left:4px solid #0066cc;}
+  select, input[type="text"] {font-size:16px; padding:6px; width:100%; margin-top:4px; border-radius:6px;}
+  .section-box {background:white; padding:12px; border-radius:8px; margin-bottom:15px; border-left:4px solid:#003366;}
+  label {font-weight:bold;}
+  input[type="date"], textarea {width:100%; padding:8px; font-size:16px; margin-top:4px; box-sizing:border-box;}
+  textarea {min-height:80px; resize:vertical;}
+  #submitBtn {width:100%; padding:12px; font-size:18px; margin-top:16px; border:none; border-radius:8px; background:#007bff; color:white;}
+</style>
+</head>
+<body>
+
+<div class="title-box">
+  <div class="title-main">Future Leaders International Private School Rabdan Branch</div>
+  <div class="title-sub-big">Weekly Waste Segregation Inspection</div>
+  <div class="title-small">HSE Section – Waste Management & Environmental Compliance</div>
+</div>
+
+<div class="section-box">
+  
+  
+  <label>Month:</label>
+  <select>
+    <option></option>
+    <option>January</option>
+    <option>February</option>
+    <option>March</option>
+    <option>April</option>
+    <option>May</option>
+    <option>June</option>
+    <option>July</option>
+    <option>August</option>
+    <option>September</option>
+    <option>October</option>
+    <option>November</option>
+    <option>December</option>
+  </select><br><br>
+  <label>Week number:</label>
+  <input type="number" min="1" max="5" placeholder="Enter week number"><br><br>
+
+
+  
+
+  <label>Started date:</label>
+  <input type="date"><br><br>
+
+
+  
+
+  
+
+  <label>Inspection conducted by:</label>
+  <input type="text" placeholder="Enter inspector name"><br><br>
+  <label>Remarks / Notes:</label>
+  <textarea placeholder="Enter observations, non-conformities or actions required"></textarea>
+</div>
+
+<h2>1. Waste Bins & Labelling</h2>
+<div class="item">Correct number of waste bins available<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">Recycling bins available where required<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">Bins clearly labelled by waste type<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">Bin labels clean and readable<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+
+<h2>2. Segregation Compliance</h2>
+<div class="item">General waste bins free from recyclables<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">Recycling bins contain correct materials only<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">Food waste disposed correctly (if applicable)<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">No hazardous items in normal bins<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+
+<h2>3. Storage, Cleanliness & Odour</h2>
+<div class="item">Bins clean and free from contamination<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">Waste stored in bags/liners<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">Bins not overflowing; lids close properly<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">Area around bins clean with no spills<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">No strong or unpleasant odours<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+
+<h2>4. Collection & Transport</h2>
+<div class="item">Collection schedule respected<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">Proper tools used to transport waste<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">Internal routes clean and unobstructed<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">External waste area tidy and organised<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+
+<h2>5. Safety & Environmental Practices</h2>
+<div class="item">Housekeeping staff use PPE when handling waste<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">No evidence of pests near waste areas<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">No leaking bags or liquid waste<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">Fire exits and emergency routes not blocked by waste<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+
+<h2>6. Awareness & Behaviour</h2>
+<div class="item">Students and staff use correct bins<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">Awareness posters/signage visible<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+<div class="item">Housekeeping team briefed this week<select><option></option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+
+<button id="submitBtn">SUBMIT</button>
+
+<div style="text-align:center; font-size:12px; margin-top:20px; color:#444;">
+Created by HSE Officer: Jelil
+</div>
+
+<script>
+document.getElementById('submitBtn').addEventListener('click', function() {
+  alert('Inspection form submitted (demo version).');
+});
+</script>
+
+</body>
+</html>
