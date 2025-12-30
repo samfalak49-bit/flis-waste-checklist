@@ -20,6 +20,7 @@
   textarea {min-height:80px; resize:vertical;}
   #submitBtn {width:100%; padding:12px; font-size:18px; margin-top:16px; border:none; border-radius:8px; background:#007bff; color:white;}
   #submitBtn:active {opacity:0.85;}
+  #submitBtn:disabled {opacity:0.65;}
   .note {text-align:center; font-size:12px; margin-top:12px; color:#444;}
 </style>
 </head>
@@ -146,17 +147,14 @@
 
   <button id="submitBtn" type="submit">SUBMIT</button>
 
-  <div class="note">
-    After submit, PDF will be emailed automatically.
-  </div>
-
+  <div class="note">After submit, PDF will be emailed automatically.</div>
 </form>
 
 <script>
-  // ✅ PASTE your Apps Script Web App URL here
-  const WEB_APP_URL = "PASTE_YOUR_WEB_APP_URL_HERE";
+  // ✅ Your Apps Script Web App URL:
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzLRyQQ9W9r95wCixpdXRi9nvwDQlwCgbl7yY8J6QY4jKrjSlrdDVGoK9XE7dWKCwig/exec";
 
-  // ✅ Recipients (both)
+  // ✅ Fixed recipients:
   const RECEIVER_EMAILS = "partygifts850@gmail.com,br1-ohs@futureleaders.sch.ae";
 
   const form = document.getElementById("wasteForm");
@@ -165,12 +163,10 @@
   function collectFormData() {
     const data = {};
     const fields = form.querySelectorAll("input, select, textarea");
-
     fields.forEach(el => {
       if (!el.name) return;
       data[el.name] = (el.value || "").trim();
     });
-
     data.receiverEmails = RECEIVER_EMAILS;
     return data;
   }
@@ -178,8 +174,9 @@
   form.addEventListener("submit", async (ev) => {
     ev.preventDefault();
 
-    if (!WEB_APP_URL || WEB_APP_URL.includes("https://script.google.com/macros/s/AKfycbzLRyQQ9W9r95wCixpdXRi9nvwDQlwCgbl7yY8J6QY4jKrjSlrdDVGoK9XE7dWKCwig/exec")) {
-      alert("Web App URL missing. Paste your Apps Script Web App URL inside index.html");
+    // ✅ Correct validation
+    if (!WEB_APP_URL) {
+      alert("Web App URL missing.");
       return;
     }
 
