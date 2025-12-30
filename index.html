@@ -20,7 +20,6 @@
   textarea {min-height:80px; resize:vertical;}
   #submitBtn {width:100%; padding:12px; font-size:18px; margin-top:16px; border:none; border-radius:8px; background:#007bff; color:white;}
   #submitBtn:active {opacity:0.85;}
-  #submitBtn:disabled {opacity:0.65;}
   .note {text-align:center; font-size:12px; margin-top:12px; color:#444;}
 </style>
 </head>
@@ -151,10 +150,10 @@
 </form>
 
 <script>
-  // ✅ Your Apps Script Web App URL:
+  // ✅ YOUR WEB APP URL (you gave me this)
   const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzLRyQQ9W9r95wCixpdXRi9nvwDQlwCgbl7yY8J6QY4jKrjSlrdDVGoK9XE7dWKCwig/exec";
 
-  // ✅ Fixed recipients:
+  // ✅ always send to both
   const RECEIVER_EMAILS = "partygifts850@gmail.com,br1-ohs@futureleaders.sch.ae";
 
   const form = document.getElementById("wasteForm");
@@ -173,12 +172,6 @@
 
   form.addEventListener("submit", async (ev) => {
     ev.preventDefault();
-
-    // ✅ Correct validation
-    if (!WEB_APP_URL) {
-      alert("Web App URL missing.");
-      return;
-    }
 
     btn.disabled = true;
     btn.textContent = "SENDING...";
