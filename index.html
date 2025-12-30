@@ -147,57 +147,53 @@
   <button id="submitBtn" type="submit">SUBMIT</button>
 
   <div class="note">After submit, PDF will be emailed automatically.</div>
-</form>
 
-<!-- Hidden iframe + form POST (NO CORS PROBLEM) -->
-<iframe name="hidden_iframe" style="display:none;"></iframe>
-<form id="hiddenPostForm" target="hidden_iframe" method="POST" style="display:none;">
-  <input type="hidden" name="payload" id="payloadField">
 </form>
 
 <script>
-  const WEB_APP_URL =
-    "https://script.google.com/macros/s/AKfycbzLRyQQ9W9r95wCixpdXRi9nvwDQlwCgbl7yY8J6QY4jKrjSlrdDVGoK9XE7dWKCwig/exec";
-
-  const RECEIVER_EMAILS =
-    "partygifts850@gmail.com,br1-ohs@futureleaders.sch.ae";
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzLRyQQ9W9r95wCixpdXRi9nvwDQlwCgbl7yY8J6QY4jKrjSlrdDVGoK9XE7dWKCwig/exec";
+  const RECEIVER_EMAILS = "partygifts850@gmail.com,br1-ohs@futureleaders.sch.ae";
 
   const form = document.getElementById("wasteForm");
   const btn = document.getElementById("submitBtn");
-  const hiddenPostForm = document.getElementById("hiddenPostForm");
-  const payloadField = document.getElementById("payloadField");
 
   function collectFormData() {
     const data = {};
-    form.querySelectorAll("input, select, textarea").forEach(el => {
+    const fields = form.querySelectorAll("input, select, textarea");
+    fields.forEach(el => {
       if (!el.name) return;
       data[el.name] = (el.value || "").trim();
     });
-    data.receiverEmails = RECEIVER_EMAILS; // must match Code.gs
+    data.receiverEmails = RECEIVER_EMAILS;
     return data;
   }
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  form.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
 
     btn.disabled = true;
     btn.textContent = "SENDING...";
 
-    const payload = JSON.stringify(collectFormData());
+    try {
+      const res = await fetch(WEB_APP_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(collectFormData())
+      });
 
-    // post as standard form submission (bypasses fetch/CORS)
-    hiddenPostForm.action = WEB_APP_URL;
-    payloadField.value = payload;
-
-    hiddenPostForm.submit();
-
-    // show success immediately (Apps Script will email)
-    setTimeout(() => {
-      alert("Sent successfully ✅");
-      form.reset();
+      const txt = (await res.text()).trim();
+      if (txt === "OK") {
+        alert("Sent successfully ✅");
+        form.reset();
+      } else {
+        alert("Server replied: " + txt);
+      }
+    } catch (e) {
+      alert("Send failed: " + e);
+    } finally {
       btn.disabled = false;
       btn.textContent = "SUBMIT";
-    }, 900);
+    }
   });
 </script>
 
